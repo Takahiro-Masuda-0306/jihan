@@ -51,7 +51,7 @@ class Jihan {
       // お釣りを出力
       System.out.println("お釣りは" + change + "円です。");
     } else {
-      System.out.println(-change + "円足りません");
+      System.out.println(-change + "円足りません。");
     }
   }
 }
