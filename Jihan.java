@@ -7,8 +7,8 @@ class Jihan {
     // 有効な硬貨の合計金額
     int validCoinTotalAmount = 0;
 
-    // 投入金額
-    int entryAmount = Integer.parseInt(args[args.length - 1]);
+    // 購入金額
+    int purchaseAmount = Integer.parseInt(args[args.length - 1]);
 
     // 有効な硬貨一覧
     Integer[] validCoins = {10, 50, 100, 500};
@@ -43,9 +43,10 @@ class Jihan {
     System.out.println("投入金額の合計は" + validCoinTotalAmount + "円です。");
 
     // 購入金額を出力
-    System.out.println("購入金額の合計は" + entryAmount + "円です。");
+    System.out.println("購入金額の合計は" + purchaseAmount + "円です。");
 
-    int change = validCoinTotalAmount - entryAmount;
+    // お釣り
+    int change = validCoinTotalAmount - purchaseAmount;
 
     if (change >= 0) {
       // お釣りを出力
