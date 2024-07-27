@@ -7,6 +7,9 @@ class Jihan {
     // 有効な硬貨の合計金額
     int validCoinTotalAmount = 0;
 
+    // 投入金額
+    int entryAmount = Integer.parseInt(args[args.length - 1]);
+
     // 有効な硬貨一覧
     Integer[] validCoins = {10, 50, 100, 500};
     List validCoinsList = Arrays.asList(validCoins);
@@ -19,8 +22,8 @@ class Jihan {
     String[] alerts = {};
     ArrayList<String> alertsList = new ArrayList<String>(Arrays.asList(alerts));
 
-    for(String arg : args) {
-      int parsedArgs = Integer.parseInt(arg);
+    for(int i = 0; i < args.length - 1; i++) {
+      int parsedArgs = Integer.parseInt(args[i]);
 
       if(validCoinsList.contains(parsedArgs)) {
         validCoinTotalAmount += parsedArgs;
@@ -37,6 +40,18 @@ class Jihan {
     }
 
     // 有効な硬貨の合計金額を出力
-    System.out.println("ただいまの投入金額は" + validCoinTotalAmount + "円です。");
+    System.out.println("投入金額の合計は" + validCoinTotalAmount + "円です。");
+
+    // 購入金額を出力
+    System.out.println("購入金額の合計は" + entryAmount + "円です。");
+
+    int change = validCoinTotalAmount - entryAmount;
+
+    if (change >= 0) {
+      // お釣りを出力
+      System.out.println("お釣りは" + change + "円です。");
+    } else {
+      System.out.println(-change + "円足りません");
+    }
   }
 }
